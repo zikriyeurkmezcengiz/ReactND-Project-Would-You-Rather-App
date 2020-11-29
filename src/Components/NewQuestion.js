@@ -11,21 +11,11 @@ class NewQuestion extends Component {
     toHome: false,
   };
 
-  handleChange = function (event, optionIndex) {
-    const text = event.target.value;
-
-    this.setState(function (previousState) {
-      return optionIndex === 1
-        ? { ...previousState, optionOne: text }
-        : { ...previousState, optionTwo: text };
-    });
-  };
-
   handleSave = function (event) {
     event.preventDefault();
+    const { dispatch } = this.props;
 
     const { optionOne, optionTwo } = this.state;
-    const { dispatch } = this.props;
     dispatch(handleAddQuestion(optionOne, optionTwo));
 
     this.setState(function (previousState) {
@@ -33,6 +23,15 @@ class NewQuestion extends Component {
         ...previousState,
         toHome: true,
       };
+    });
+  };
+
+  handleChange = function (event, optionIndex) {
+    const text = event.target.value;
+    this.setState(function (previousState) {
+      return optionIndex === 2
+        ? { ...previousState, optionTwo: text }
+        : { ...previousState, optionOne: text };
     });
   };
   render() {

@@ -16,14 +16,19 @@ class Question extends Component {
   render() {
     const { authedUser, question, users } = this.props;
     const answers = Object.keys(users[authedUser].answers);
-    const answered = answers.indexOf(question.id) > -1 ? true : false;
-    const votesOptionOne = question.optionOne.votes.length;
-    const votesOptionTwo = question.optionTwo.votes.length;
-    const votesTotal = votesOptionOne + votesOptionTwo;
-    const percentVotesOptionOne =
-      (votesOptionOne / votesTotal).toFixed(2) * 100;
-    const percentVotesOptionTwo =
-      (votesOptionTwo / votesTotal).toFixed(2) * 100;
+    const isAnsweredQuestionByAuthedUser =
+      answers.indexOf(question.id) > -1 ? true : false;
+
+    const optionOneVoteCount = question.optionOne.votes.length;
+    const optionTwoVoteCount = question.optionTwo.votes.length;
+
+    const totalVotes = optionOneVoteCount + optionTwoVoteCount;
+
+    const percentageForOptionOne =
+      (optionOneVoteCount / totalVotes).toFixed(2) * 100;
+    const percentageForOptionTwo =
+      (optionTwoVoteCount / totalVotes).toFixed(2) * 100;
+
     return (
       <Link to={`/questions/${question.id}`} className="question">
         <div className="question-header">
@@ -47,19 +52,10 @@ class Question extends Component {
             >
               {question.optionOne.text}
             </Button>
-            {/* <button
-              className={
-                question.optionOne.votes.indexOf(authedUser) > -1
-                  ? "question-option-selected"
-                  : answered
-                  ? "answered"
-                  : ""
-              }
-            ></button> */}
-            {answered && (
+
+            {isAnsweredQuestionByAuthedUser && (
               <span className="stats">
-                Votes: {question.optionOne.votes.length} (
-                {percentVotesOptionOne}
+                Votes: {optionOneVoteCount} ({percentageForOptionOne}
                 %)
               </span>
             )}
@@ -77,10 +73,9 @@ class Question extends Component {
               {question.optionTwo.text}
             </Button>
 
-            {answered && (
+            {isAnsweredQuestionByAuthedUser && (
               <span className="stats">
-                Votes: {question.optionTwo.votes.length} (
-                {percentVotesOptionTwo}
+                Votes: {optionTwoVoteCount} ({percentageForOptionTwo}
                 %)
               </span>
             )}
