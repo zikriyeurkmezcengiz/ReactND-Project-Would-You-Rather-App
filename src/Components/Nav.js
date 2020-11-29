@@ -1,7 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default function Nav() {
+function Nav(props) {
+  const { authedUser, users } = props;
+  const isLoggedIn = authedUser !== null;
+  const avatarImage = isLoggedIn
+    ? users[authedUser].avatarURL
+    : "defaultUser.png";
   return (
     <nav className="nav">
       <ul>
@@ -10,6 +16,7 @@ export default function Nav() {
             Home
           </NavLink>
         </li>
+
         <li>
           <NavLink to="/leaderboard" exact activeClassName="active">
             Leaderboard
@@ -20,7 +27,38 @@ export default function Nav() {
             New
           </NavLink>
         </li>
+
+        {isLoggedIn ? (
+          <li>
+            <NavLink to="/login" exact activeClassName="active">
+              <div className="nav-user">
+                Logout
+                <img
+                  src={avatarImage}
+                  alt={`Avatar of ${authedUser}`}
+                  className="nav-avatar"
+                />
+                {authedUser}
+              </div>
+            </NavLink>
+          </li>
+        ) : (
+          <li>
+            <NavLink to="/login" exact activeClassName="active">
+              Login
+            </NavLink>
+          </li>
+        )}
       </ul>
     </nav>
   );
 }
+
+function mapStateToProps({ authedUser, users }) {
+  return {
+    authedUser,
+    users,
+  };
+}
+
+export default connect(mapStateToProps, null, null, { pure: false })(Nav);
