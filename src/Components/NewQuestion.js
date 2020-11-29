@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { handleAddQuestion } from "../Actions/questions";
 import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
 class NewQuestion extends Component {
   state = {
@@ -55,16 +56,20 @@ class NewQuestion extends Component {
           </div>
           <div className="new-options">
             <div className="new-option">
-              <span className="hint">Option One</span>
-              <textarea
+              <TextField
                 value={optionOne}
+                id="outlined-basic"
+                label="Option One"
+                variant="outlined"
                 onChange={(event) => this.handleChange(event, 1)}
               />
             </div>
             <div className="new-option">
-              <span className="hint">Option Two</span>
-              <textarea
+              <TextField
                 value={optionTwo}
+                id="outlined-basic"
+                label="Option Two"
+                variant="outlined"
                 onChange={(event) => this.handleChange(event, 2)}
               />
             </div>

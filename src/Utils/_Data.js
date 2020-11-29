@@ -35,7 +35,7 @@ let users = {
   psyduck: {
     id: "psyduck",
     name: "Psyduck",
-    avatarURL: "Avatars/Psyduck.jpg",
+    avatarURL: "Avatars/Psyduck.png",
     answers: {},
     questions: [],
   },
