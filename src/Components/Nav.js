@@ -41,6 +41,7 @@ function Nav(props) {
                   src={avatarImage}
                   className="logout-avatar"
                 />
+                <b>{users[authedUser].name}</b>
               </div>
             </NavLink>
           </li>

@@ -9,12 +9,14 @@ import Dashboard from "./Dashboard";
 import LeaderBoard from "./LeaderBoard";
 import NewQuestion from "./NewQuestion";
 import Login from "./Login";
+import QuestionPage from "./QuestionPage";
 
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());
   }
   render() {
+    const { isLoggedIn } = this.props;
     return (
       <Router>
         <Fragment>
@@ -23,10 +25,21 @@ class App extends Component {
             <Nav />
             {this.props.loading === true ? null : (
               <div>
-                <Route path="/" exact component={Dashboard} />
+                <Route
+                  path="/"
+                  exact
+                  component={Dashboard}
+                  isLoggedIn={isLoggedIn}
+                />
                 <Route path="/leaderboard" exact component={LeaderBoard} />
                 <Route path="/add" exact component={NewQuestion} />
                 <Route path="/login" exact component={Login} />
+                <Route
+                  path="/questions/:id"
+                  exact
+                  component={QuestionPage}
+                  isLoggedIn={isLoggedIn}
+                />
               </div>
             )}
           </div>
