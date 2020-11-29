@@ -1,5 +1,10 @@
 // @flow
-import { _getUsers, _getQuestions } from "./_Data.js";
+import {
+  _getUsers,
+  _getQuestions,
+  _saveQuestion,
+  _saveQuestionAnswer,
+} from "./_Data.js";
 
 export function getInitialData() {
   return Promise.all([_getUsers(), _getQuestions()]).then(function ([
@@ -11,4 +16,12 @@ export function getInitialData() {
       questions,
     };
   });
+}
+
+export function saveQuestion(question) {
+  return _saveQuestion(question);
+}
+
+export function saveQuestionAnswer(question) {
+  return _saveQuestionAnswer(question);
 }

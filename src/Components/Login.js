@@ -121,17 +121,10 @@ class Login extends Component {
             className="login-button"
             variant="contained"
             color="primary"
+            disabled={userId === -1}
           >
             Login
           </Button>
-
-          {/* <button
-           
-            disabled={isSelected === -1}
-            onClick={(event) => this.handleLogin(event)}
-          >
-            Login
-          </button> */}
         </div>
       </div>
     );

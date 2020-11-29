@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LoadingBar from "react-redux-loading";
 import { connect } from "react-redux";
 import "../App.css";
@@ -10,6 +10,8 @@ import LeaderBoard from "./LeaderBoard";
 import NewQuestion from "./NewQuestion";
 import Login from "./Login";
 import QuestionPage from "./QuestionPage";
+import NotFound from "./NotFound";
+import CustomRoute from "../Utils/CustomRoute";
 
 class App extends Component {
   componentDidMount() {
@@ -25,21 +27,34 @@ class App extends Component {
             <Nav />
             {this.props.loading === true ? null : (
               <div>
-                <Route
-                  path="/"
-                  exact
-                  component={Dashboard}
-                  isLoggedIn={isLoggedIn}
-                />
-                <Route path="/leaderboard" exact component={LeaderBoard} />
-                <Route path="/add" exact component={NewQuestion} />
-                <Route path="/login" exact component={Login} />
-                <Route
-                  path="/questions/:id"
-                  exact
-                  component={QuestionPage}
-                  isLoggedIn={isLoggedIn}
-                />
+                <Switch>
+                  <CustomRoute
+                    path="/"
+                    exact
+                    component={Dashboard}
+                    isLoggedIn={isLoggedIn}
+                  />
+                  <CustomRoute
+                    path="/leaderboard"
+                    exact
+                    component={LeaderBoard}
+                    isLoggedIn={isLoggedIn}
+                  />
+                  <CustomRoute
+                    path="/add"
+                    exact
+                    component={NewQuestion}
+                    isLoggedIn={isLoggedIn}
+                  />
+                  <CustomRoute
+                    path="/questions/:id"
+                    exact
+                    component={QuestionPage}
+                    isLoggedIn={isLoggedIn}
+                  />
+                  <Route path="/login" exact component={Login} />
+                  <Route component={NotFound} />{" "}
+                </Switch>
               </div>
             )}
           </div>
