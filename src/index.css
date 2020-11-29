@@ -161,3 +161,71 @@ li {
   font-size: 20px;
   color: #c3392a;
 }
+
+.nav-user {
+  float: right;
+  display: flex;
+  align-items: center;
+}
+
+/* TODO: Change CSS */
+.login {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  border: 1px solid #dad7d7;
+  border-radius: 5px;
+}
+.user-avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 30px;
+  margin: 10px;
+}
+
+.login-button {
+  margin: 35px auto;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+}
+
+.user-select {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-select select {
+  float: right;
+  width: 160px;
+  height: 30px;
+  margin: 20px 0px 10px 10px;
+}
+
+.nav-user {
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 15px;
+  margin: 0 5px 0 10px;
+}
+
+.nav li:last-child {
+  float: right;
+  padding-right: 0;
+  margin-right: 0;
+  margin-left: auto;
+}
+.logout-avatar {
+  margin-left: 8px !important;
+}

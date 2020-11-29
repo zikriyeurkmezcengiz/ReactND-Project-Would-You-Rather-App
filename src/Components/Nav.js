@@ -2,12 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
+import Avatar from "@material-ui/core/Avatar";
+
 function Nav(props) {
   const { authedUser, users } = props;
   const isLoggedIn = authedUser !== null;
   const avatarImage = isLoggedIn
     ? users[authedUser].avatarURL
     : "defaultUser.png";
+
   return (
     <nav className="nav">
       <ul>
@@ -33,12 +36,11 @@ function Nav(props) {
             <NavLink to="/login" exact activeClassName="active">
               <div className="nav-user">
                 Logout
-                <img
-                  src={avatarImage}
+                <Avatar
                   alt={`Avatar of ${authedUser}`}
-                  className="nav-avatar"
+                  src={avatarImage}
+                  className="logout-avatar"
                 />
-                {authedUser}
               </div>
             </NavLink>
           </li>
