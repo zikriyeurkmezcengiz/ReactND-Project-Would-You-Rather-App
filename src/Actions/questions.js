@@ -1,3 +1,4 @@
+/* @flow */
 import { saveQuestion, saveQuestionAnswer } from "../Utils/api";
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
@@ -17,6 +18,7 @@ export function addQuestion(question) {
     question,
   };
 }
+
 export function handleAddQuestion(optionOneText, optionTwoText) {
   return function (dispatch, getState) {
     const { authedUser } = getState();

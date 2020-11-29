@@ -330,3 +330,34 @@ li {
   width: 100%;
   position: relative;
 }
+
+.leader-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.leader-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.leader-card {
+  width: 300px;
+  padding: 10px;
+}
+
+.leader-counts {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5px;
+  justify-content: space-between;
+}
+
+.leader-counts-header {
+  display: flex;
+  flex-direction: column;
+}

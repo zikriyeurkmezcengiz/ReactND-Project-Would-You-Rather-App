@@ -10,7 +10,6 @@ class Dashboard extends Component {
   };
 
   handleFilterClicked = function (event) {
-    debugger;
     this.setState(function () {
       return {
         questionType:
@@ -25,7 +24,7 @@ class Dashboard extends Component {
 
   render() {
     const { questionType } = this.state;
-    const { authedUser, questions } = this.props;
+    const { authedUser, questions, users } = this.props;
     const questionsArray = Object.keys(questions).map((key) => questions[key]);
 
     const filteredQuestions =
@@ -46,6 +45,9 @@ class Dashboard extends Component {
     const orderedQuestions = filteredQuestions.sort(
       (a, b) => b.timestamp - a.timestamp
     );
+
+    console.log(questions);
+    console.log(users);
 
     return (
       <div className="dashboard">
