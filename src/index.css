@@ -229,3 +229,79 @@ li {
 .logout-avatar {
   margin-left: 8px !important;
 }
+
+.dasboard-button-group {
+  display: flex;
+  justify-content: center;
+}
+.dashboard {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+}
+
+.question-list {
+  display: flex;
+  flex-flow: column wrap;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: -8px;
+  padding: 0;
+}
+
+.question-list li {
+  margin: 0 8px -10px 8px;
+  padding: 0;
+}
+
+.question {
+  width: 500px;
+  min-height: 250px;
+  padding: 10px;
+  display: flex;
+  flex-flow: wrap;
+  margin: 10px auto;
+  border: 1px solid #dad7d7;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.question img {
+  display: inline-block;
+  position: relative;
+  left: 10px;
+  margin: 0;
+}
+
+.question span {
+  text-align: center;
+  margin: 20px;
+  display: block;
+  float: right;
+}
+
+.option {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100%;
+}
+
+.options {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  width: 100%;
+}
+
+.question-header {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
