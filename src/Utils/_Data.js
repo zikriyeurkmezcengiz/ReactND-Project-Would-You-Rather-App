@@ -5,43 +5,39 @@ let users = {
     avatarURL: "Avatars/Pikachu.png",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
-      "6ni6ok3ym7mf1p33lnez": "optionTwo",
+      "6ni6ok3ym7mf1p33lnez": "optionOne",
       am8ehyc8byjqgar0jgpub9: "optionTwo",
       loxhs1bqm25b708cmbf3g: "optionTwo",
     },
     questions: ["8xf0y6ziyjabvozdd253nd", "am8ehyc8byjqgar0jgpub9"],
   },
-  charme: {
-    id: "charme",
-    name: "Charmander",
-    avatarURL: "Avatars/Charmander.png",
+  squirtle: {
+    id: "squirtle",
+    name: "squirtle",
+    avatarURL: "Avatars/Squirtle.png",
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
       xj352vofupe1dqz9emx13r: "optionTwo",
     },
     questions: ["loxhs1bqm25b708cmbf3g", "vthrdm985a262al8qx3do"],
   },
-  psy: {
-    id: "psy",
-    name: "Psyduck",
-    avatarURL: "Avatars/Psyduck.png",
+  charme: {
+    id: "charme",
+    name: "Charmander",
+    avatarURL: "Avatars/Charmander.png",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",
-      "6ni6ok3ym7mf1p33lnez": "optionTwo",
+      "6ni6ok3ym7mf1p33lnez": "optionOne",
     },
     questions: ["6ni6ok3ym7mf1p33lnez", "xj352vofupe1dqz9emx13r"],
   },
-  squirt: {
-    id: "squirt",
-    name: "Squirtle",
-    avatarURL: "Avatars/Squirtle.png",
-    answers: {
-      xj352vofupe1dqz9emx13r: "optionOne",
-      vthrdm985a262al8qx3do: "optionTwo",
-      "6ni6ok3ym7mf1p33lnez": "optionTwo",
-    },
-    questions: ["6ni6ok3ym7mf1p33lnez", "xj352vofupe1dqz9emx13r"],
+  psyduck: {
+    id: "psyduck",
+    name: "Psyduck",
+    avatarURL: "Avatars/Psyduck.jpg",
+    answers: {},
+    questions: [],
   },
 };
 
@@ -69,7 +65,7 @@ let questions = {
     },
     optionTwo: {
       votes: ["charme", "picapica"],
-      text: "become a supervillain",
+      text: "become a supervillian",
     },
   },
   am8ehyc8byjqgar0jgpub9: {
@@ -87,7 +83,7 @@ let questions = {
   },
   loxhs1bqm25b708cmbf3g: {
     id: "loxhs1bqm25b708cmbf3g",
-    author: "psy",
+    author: "squirtle",
     timestamp: 1482579767190,
     optionOne: {
       votes: [],
@@ -100,10 +96,10 @@ let questions = {
   },
   vthrdm985a262al8qx3do: {
     id: "vthrdm985a262al8qx3do",
-    author: "psy",
+    author: "squirtle",
     timestamp: 1489579767190,
     optionOne: {
-      votes: ["psy"],
+      votes: ["squirtle"],
       text: "find $50 yourself",
     },
     optionTwo: {
@@ -120,21 +116,8 @@ let questions = {
       text: "write JavaScript",
     },
     optionTwo: {
-      votes: ["psy"],
+      votes: ["squirtle"],
       text: "write Swift",
-    },
-  },
-  xj352vofupe1dqz9emx13x: {
-    id: "xj352vofupe1dqz9emx13x",
-    author: "squirt",
-    timestamp: 1493579767190,
-    optionOne: {
-      votes: ["charme"],
-      text: "write JavaScript 2",
-    },
-    optionTwo: {
-      votes: ["psy", "squirt"],
-      text: "write Swift 2",
     },
   },
 };
@@ -176,21 +159,12 @@ function formatQuestion({ optionOneText, optionTwoText, author }) {
 
 export function _saveQuestion(question) {
   return new Promise((res, rej) => {
-    const authedUser = question.author;
     const formattedQuestion = formatQuestion(question);
 
     setTimeout(() => {
       questions = {
         ...questions,
         [formattedQuestion.id]: formattedQuestion,
-      };
-
-      users = {
-        ...users,
-        [authedUser]: {
-          ...users[authedUser],
-          questions: users[authedUser].questions.concat([formattedQuestion.id]),
-        },
       };
 
       res(formattedQuestion);
