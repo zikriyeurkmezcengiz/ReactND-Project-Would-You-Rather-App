@@ -28,7 +28,6 @@ class Question extends Component {
       (optionOneVoteCount / totalVotes).toFixed(2) * 100;
     const percentageForOptionTwo =
       (optionTwoVoteCount / totalVotes).toFixed(2) * 100;
-
     return (
       <Link to={`/questions/${question.id}`} className="question">
         <div className="question-header">
@@ -87,7 +86,6 @@ class Question extends Component {
 }
 
 function mapStateToProps({ authedUser, users }) {
-  console.log(actions);
   return {
     authedUser,
     users,

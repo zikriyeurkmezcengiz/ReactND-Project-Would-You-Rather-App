@@ -47,7 +47,6 @@ export function answerQuestion(authedUser, qid, answer) {
 export function handleAnswerQuestion(question, answer) {
   return function (dispatch, getState) {
     const { authedUser } = getState();
-
     const answerInfo = {
       authedUser,
       qid: question.id,
