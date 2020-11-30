@@ -58,17 +58,18 @@ class Dashboard extends Component {
             aria-label="large outlined primary button group"
           >
             <Button
-              color={questionType === 1 ? "secondary" : "primary"}
-              onClick={(event) => this.handleFilterClicked(event)}
-            >
-              Answered
-            </Button>
-            <Button
               color={questionType === 2 ? "secondary" : "primary"}
               onClick={(event) => this.handleFilterClicked(event)}
             >
               UnAnswered
             </Button>
+            <Button
+              color={questionType === 1 ? "secondary" : "primary"}
+              onClick={(event) => this.handleFilterClicked(event)}
+            >
+              Answered
+            </Button>
+
             <Button
               color={questionType === 3 ? "secondary" : "primary"}
               onClick={(event) => this.handleFilterClicked(event)}
