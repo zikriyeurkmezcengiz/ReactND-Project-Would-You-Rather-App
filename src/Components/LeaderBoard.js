@@ -8,10 +8,12 @@ import Divider from "@material-ui/core/Divider";
 function Leaderboard(props) {
   const { users } = props;
   const userList = Object.keys(users).map((key) => users[key]);
-  const orderedUserList = userList.sort((x, y) => {
-    const totalX = Object.keys(x.answers).length + x.questions.length;
-    const totalY = Object.keys(y.answers).length + y.questions.length;
-    return totalY - totalX;
+  const orderedUserList = userList.sort((user1, user2) => {
+    const totalOfUser1 =
+      Object.keys(user1.answers).length + user1.questions.length;
+    const totalOfUser2 =
+      Object.keys(user2.answers).length + user2.questions.length;
+    return totalOfUser2 - totalOfUser1;
   });
 
   return (
