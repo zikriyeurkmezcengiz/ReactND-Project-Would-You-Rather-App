@@ -1,7 +1,8 @@
 # React - Redux Would You Rather App
 
 This Project is created as an second assessment project for Udacity's React Nanodegree Program.
-Material UI library is used for better user experience.
+With this application, a pool can be voted, a new poll can be created and leaderboard can be observed. And application is protected with an login mechanism.  
+In this project material UI library is used for better user experience.
 
 ## Available Scripts
 
