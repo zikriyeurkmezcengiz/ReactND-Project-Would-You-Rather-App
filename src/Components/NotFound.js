@@ -6,7 +6,7 @@ class NotFound extends Component {
     const notFoundUrl = "404-notFound.jpg";
     return (
       <div>
-        <img src={`/${notFoundUrl}`} />
+        <img src={`/${notFoundUrl}`} alt="Notfound" />
       </div>
     );
   }

@@ -3,13 +3,10 @@ import { setAuthedUser, clearAuthedUser } from "../Actions/authedUser";
 import { connect } from "react-redux";
 import { Redirect, withRouter } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
 import NativeSelect from "@material-ui/core/NativeSelect";
 import InputBase from "@material-ui/core/InputBase";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import Chip from "@material-ui/core/Chip";
 
 class Login extends Component {
